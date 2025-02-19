@@ -1,5 +1,15 @@
 # DEBS ACM Team Running Notes
 
+## Members
+
+1. Prathmesh Sonawane
+2. Owen Mariani
+3. Tanish Bhowmick
+
+## Problem Statement 
+
+L-PFB is a manufacturing method where layers of fine metal powder are melted on top of each other to create objects. The problem is that in some cases, due to impurities in the material or simply calibration errors, the object can have high levels of porosity (or empty space) in some areas, leading the object to be defected. 
+
 ## Goal
 Detect a high degree of porosity (amount of empty spaces left inside the material) during a simulation, which may severely impact the durability of the object being created.
 
