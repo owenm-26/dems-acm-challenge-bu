@@ -19,14 +19,28 @@ Detect a high degree of porosity (amount of empty spaces left inside the materia
 Each optical tomography image contains, for each point **P = (x, y)**, the temperature **T(P)** at that point, measured layer by layer (**z**). In our input stream, we are given tiles for each layer, layer by layer, where each time contains points, each with a T(P).
 
 ## Proposed Solution/Processing Pipeline
-1. **Saturation analysis**: Within each tile, detect all points that surpass a threshold value of **65000**.
-2. **Windowing**: For each tile, keep a window of the last three layers.
-3. **Outlier analysis**: Within each tile window, for each point **P** of the most recent layer:
-   - Compute its local temperature deviation **D** as the absolute difference between:
-     - The mean temperature **T(P)** of its close neighbors (Manhattan distance **0 ≤ d ≤ 2** across 3 layers).
-     - The mean temperature of its outer neighbors (Manhattan distance **2 < d ≤ 4**).
-   - A point is classified as an **outlier** if **D > 5000**.
-4. **Outlier clustering**: Using the outliers computed for the last received layer, find clusters of nearby outliers using **DBScan**, with the Euclidean distance between points as the distance metric.
+
+The following "processing pipeline" is given to us by the DEBS 2025 website. 
+
+    1. Saturation analysis: Within each tile, detect all points that surpass a threshold value of 65000.
+
+    2. Windowing: For each tile, keep a window of the last three layers.
+
+    3. Outlier analysis: Within each tile window, for each point P of the most recent layer:
+        - Compute its local temperature deviation D as the absolute difference between:
+            - The mean temperature T(P) of its close neighbors (Manhattan distance 0 ≤ d ≤ 2 across 3 layers).
+            - The mean temperature of its outer neighbors (Manhattan distance 2 < d ≤ 4).
+        - A point is classified as an outlier if D > 5000.
+
+    4. Outlier clustering: Using the outliers computed for the last received layer, find clusters of nearby outliers using DBScan, with the Euclidean distance between points as the distance metric.
+
+In summary, by finding the number of saturated points (or those that pass our temperature threshold) and our cluster centers/sizes for points that are outliers according to step 3 in our processing pipeline, defects can be detected. 
+
+Though DEBS gives us a sample solution written in Python, our group has decided to use Kafka and Flink to funnel and manipulate our streaming data. These tools have been taught in class and have the necessary functionality to aggregate/manipulate streaming data with a variety of operators. 
+
+### Technical Tools for Each Step: 
+
+1. To detect all points that surpass a threshold for each tile, we can use the filter operator and filter out data points that don't meet our threshold. Thus, all output data would pass our threshold and could be counted for each tile, giving us our first out put requirement. 
 
 ## Output
 For each input **tile** received from the stream, the solution should return:
