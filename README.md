@@ -20,6 +20,10 @@ And our [Running Document](https://docs.google.com/document/d/17led0yd2KA_CpYaSh
 
 ## API Documentation
 
+Login to evaluate and stuff [here](https://challenge2025.debs.org/docs/)
+
+Check slides provided for [API endpoint specification](https://docs.google.com/presentation/d/1rBOWwbdFKXaHX5j_ChI0MbPOuiF2LD250ssT8hePQhY/edit#slide=id.g33465615dac_0_87)
+
 Copy and paste the content of **[/debs-acm-challenge-example/openapi.yml](/debs-acm-challenge-example/openapi.yml)** into `https://editor.swagger.io/`
 
 ## Contributors
