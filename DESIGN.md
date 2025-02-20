@@ -49,3 +49,23 @@ For each input **tile** received from the stream, the solution should return:
 
 ## Source of Error
 The system receives a stream of optical tomography images indicating the **temperature of the powder bed** for each layer during the manufacturing process. It must compute the **probability of defects** in some areas, enabling **rapid reactions** in case of problems.
+
+## Success Indicators
+By the conclusion of the semester, this project will be able to performantly handle the task stated above when deployed as a task in the Kubernetes cluster. Our markers of progress will be the following:
+#### Progress Markers 
+1. Basic Solution that accomplishes the task unperformantly locally
+2. Basic Solution that accomplishes the task unperformantly in the deployed environment
+3. Solution that outperforms the template solution in the deployed environment
+4. Solutions that perform increasingly well on the leaderboard and have less runtime than previous runs in the deployed environment
+
+#### Metrics 
+Our measures for success are directly tied to the metrics by which our project will be evaluated: **throughput and latency**. However, even if these two metrics are the most important, we aim to also keep in mind the following characteristics as nice-to-haves:
+* configurability
+* (horizontal) scalability
+* operational reliability/resilience
+* accessibility of source code (good documentation + open source)
+* integration with standard (tools/protocols)
+* security mechanisms
+* deployment support
+* portability/maintainability
+* support of special hardware (e.g., FPGAs, GPUs, SDNs, ...)
