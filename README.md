@@ -6,11 +6,13 @@
 
 - follow [/debs-acm-challenge-example/README](/debs-acm-challenge-example/README) for how to run it
 
-## Data Download
+## Data + Local Evaluator Download
 
 The data needed to run the example project is too large to store on GitHub. Please download it from this link:
 
 [Data for testing here](https://drive.google.com/file/d/1a7eS1tb2SsohfmRDsnlKs9IFKzQpgN7z/view?usp=sharing)
+
+[Local Evaluator here](https://drive.google.com/drive/u/0/folders/1ywnzGsSpGZzng7zVbkEhzPAX0JeKW2O4)
 
 ## Team Resources
 
