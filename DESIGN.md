@@ -104,4 +104,4 @@ Some tasks are dependent on each other:
 - Deployment integration depends on functional pipeline components.
 - Validation runs iteratively across modules.
 
-Although we all have similar strengths and weaknesses as students, we’ll distribute tasks based on interest and maintain regular coordination to ensure smooth integration and support each other throughout the project.
+Although we all have similar strengths and weaknesses as students, we’ll distribute tasks based on interest and maintain regular coordination to ensure smooth and efficient progress throughout the project.
