@@ -50,6 +50,24 @@ For each input **tile** received from the stream, the solution should return:
 ## Source of Error
 The system receives a stream of optical tomography images indicating the **temperature of the powder bed** for each layer during the manufacturing process. It must compute the **probability of defects** in some areas, enabling **rapid reactions** in case of problems.
 
+## Experimental Plan
+### Data & Simulation:
+- Use synthetic datasets and historical optical tomography images to simulate defect scenarios.
+- Inject controlled defects into the data stream to validate threshold filtering, windowing, outlier detection, and clustering.
+
+### Performance & Fault Testing:
+- Measure throughput and latency using both local setups and a Kubernetes deployment.
+- Deploy our solution via the DEBS competition’s pipeline, which benchmarks Kubernetes clusters and simulates network and pod failures.
+
+### Monitoring & Metrics:
+- Collect system metrics (CPU, memory, throughput, latency) using Kafka/Flink built-in tools
+- Validate detection accuracy by comparing outputs (saturated point counts, cluster centroids/sizes) against ground-truth data.
+
+### Deployment Pipeline:
+- Utilize the DEBS deployment pipeline to upload our Kubernetes clusters, enabling automated benchmarking and fault injection tests (network and pod failures).
+- Run iterative experiments through this pipeline to fine-tune performance, scalability, and resilience under realistic conditions.
+
+This plan will confirm our hypotheses by ensuring the system accurately detects defects while maintaining performance and scalability under realistic operational conditions.
 ## Success Indicators
 By the conclusion of the semester, this project will be able to performantly handle the task stated above when deployed as a task in the Kubernetes cluster. Our markers of progress will be the following:
 #### Progress Markers 
