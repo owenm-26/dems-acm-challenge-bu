@@ -87,3 +87,21 @@ Our measures for success are directly tied to the metrics by which our project w
 * deployment support
 * portability/maintainability
 * support of special hardware (e.g., FPGAs, GPUs, SDNs, ...)
+
+## Task Assignment
+
+Specific Tasks to be completed:
+- Data Ingestion & Preprocessing
+- Outlier Detection & Clustering
+- Monitoring & Fault Tolerance:
+- Deployment Pipeline Integration:
+- Validation & Testing:
+
+
+Tasks will be divided so that ingestion, detection, and monitoring can be developed in parallel once initial setup is complete. 
+Some tasks are dependent on each other:
+- Data ingestion must be completed before outlier detection.
+- Deployment integration depends on functional pipeline components.
+- Validation runs iteratively across modules.
+
+Although we all have similar strengths and weaknesses as students, we’ll distribute tasks based on interest and maintain regular coordination to ensure smooth integration and support each other throughout the project.
