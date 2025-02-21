@@ -69,24 +69,32 @@ The system receives a stream of optical tomography images indicating the **tempe
 
 This plan will confirm our hypotheses by ensuring the system accurately detects defects while maintaining performance and scalability under realistic operational conditions.
 ## Success Indicators
-By the conclusion of the semester, this project will be able to performantly handle the task stated above when deployed as a task in the Kubernetes cluster. Our markers of progress will be the following:
+By the conclusion of the semester, this project will be able to performantly handle the task stated above when deployed as a task in the Kubernetes cluster. Our markers of progress will be the following: 
+
 #### Progress Markers 
-1. Basic Solution that accomplishes the task unperformantly locally
+For what "performantly" and "unperformantly" mean please refer to the **Metrics** section. In general "performantly means that the solution has both a competitive latency and throughput in relation to the other competitors and is able to replicate those scores repeatedly.
+
+1. Basic Solution that accomplishes the task locally (unperformantly)
+The system is setup such that it can take in images and output confirmation that it has received each image
+    * The solution is able to correctly identify high saturation points in images (check against sample solution)
+    * The solution is able to correctly compute outliers (check against sample solution)
+    * The solution is able to correctly cluster those outliers (check against sample solution)
 2. Basic Solution that accomplishes the task unperformantly in the deployed environment
 3. Solution that outperforms the template solution in the deployed environment
-4. Solutions that perform increasingly well on the leaderboard and have less runtime than previous runs in the deployed environment
+4. Solutions that perform increasingly well on the leaderboard and have better metrics than previous runs in the deployed environment
+5. Solution is cleaned up and scores well in the following metrics
 
 #### Metrics 
 Our measures for success are directly tied to the metrics by which our project will be evaluated: **throughput and latency**. However, even if these two metrics are the most important, we aim to also keep in mind the following characteristics as nice-to-haves:
-* configurability
-* (horizontal) scalability
-* operational reliability/resilience
-* accessibility of source code (good documentation + open source)
+* **Configurability**: the ability to input different parameters to optimize the solution for workloads of different characterstics or clusters with different amounts of resources
+* **Horizontal scalability**: the ability to enhance the performance of the solution by adding more hardware via efficient paralellization
+* **Operational Reliability/Resilience**: the solution is able to overcome network and pod failures gracefully 
+* **Accessibility of source code**: there is good documentation and guiding tutorials for how to best use the solution
 * integration with standard (tools/protocols)
-* security mechanisms
-* deployment support
-* portability/maintainability
-* support of special hardware (e.g., FPGAs, GPUs, SDNs, ...)
+* **Security Mechanisms**: protections against malicious payloads being uploaded as injections 
+* **Deployment Support**: ability to and assistance in running the solution on premise for those who want to manage their own solution
+* **Portability/Maintainability**: The solution can be used in multiple environments and on multiple platforms. It is also well structures/commented for long term maintainability
+* **Support of Special Hardware** (e.g., FPGAs, GPUs, SDNs, ...)
 
 ## Task Assignment
 
