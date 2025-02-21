@@ -91,7 +91,6 @@ Our measures for success are directly tied to the metrics by which our project w
 ## Task Assignment
 
 Specific Tasks to be completed:
-- Data Ingestion & Preprocessing
 - Outlier Detection & Clustering
 - Monitoring & Fault Tolerance:
 - Deployment Pipeline Integration:
