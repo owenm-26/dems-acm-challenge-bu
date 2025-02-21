@@ -34,13 +34,29 @@ The following "processing pipeline" is given to us by the DEBS 2025 website.
 
     4. Outlier clustering: Using the outliers computed for the last received layer, find clusters of nearby outliers using DBScan, with the Euclidean distance between points as the distance metric.
 
-In summary, by finding the number of saturated points (or those that pass our temperature threshold) and our cluster centers/sizes for points that are outliers according to step 3 in our processing pipeline, defects can be detected. 
+    -----------
+    For each input (tile) received from the stream, your solution should return:
+
+    The number of saturated points.
+    The centroid (x, y coordinates) and size (number of points) of the top 10 largest clusters.
+
+In summary, by finding the number of saturated points (or those that pass our temperature threshold) and our cluster centers/sizes for points that are outliers according to step 3 in our processing pipeline, defects can be detected. Our understanding is that thermal outliers are directly linked to defects. Thus, by finding thermal outliers, we can find when defects are likely to occur. 
 
 Though DEBS gives us a sample solution written in Python, our group has decided to use Kafka and Flink to funnel and manipulate our streaming data. These tools have been taught in class and have the necessary functionality to aggregate/manipulate streaming data with a variety of operators. 
 
+
+
 ### Technical Tools for Each Step: 
 
-1. To detect all points that surpass a threshold for each tile, we can use the filter operator and filter out data points that don't meet our threshold. Thus, all output data would pass our threshold and could be counted for each tile, giving us our first out put requirement. 
+**Note: The DEBS sample solution was not working until 2/18 when the DEBS organizers pushed a fix. This limited our testing capabilities for the design document.**
+
+1. To detect all points that surpass a threshold for each tile, we can use the filter operator and filter out data points that don't meet our threshold. Thus, all output data would pass our threshold and could be counted for each tile, giving us our first out put requirement. After, we can simply key-by the tileID and run a count function. 
+
+2. Flink/Kafka automatically supports the usage of windows. For this step, we could use sliding windows after key-by using tileID of size three layers and step one layer. 
+
+3. Using our window of size 3, we can then compute the average temperature for each point in each tile for the latest layer, finding the local and outer averages. Then, we can simply see if the deviation is large enough, and use a filter function to pass those points on. 
+
+4. Lastly, with all the deviated points, we can keyby tileID, plot those points using DBScan, find our top 10 clusters, and feed those to our sink. 
 
 ## Output
 For each input **tile** received from the stream, the solution should return:
